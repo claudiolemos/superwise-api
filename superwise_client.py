@@ -75,9 +75,9 @@ class SuperwiseClient:
 
         return metrics
 
-    def get_metrics_values(self, task_id, version_id, entity_id, metric_id, features):
+    def get_metrics_values(self, task_id, version_id, entity_id, features):
         request_url  = f'{self.URL_PREFIX}/kpi/v1/metrics'
-        requests_params = dict(task_id=task_id, version_id=version_id, entity_id=entity_id, segment_id=-1, metric_id=metric_id, time_unit='D')
+        requests_params = dict(task_id=task_id, version_id=version_id, entity_id=entity_id, segment_id=-1, metric_id=[1], time_unit='D')
 
         res = requests.get(request_url,params=requests_params,headers=self.HEADERS)
         res.raise_for_status()
